@@ -1,0 +1,326 @@
+<template name="sidebar">
+	<div id="sidebar-wrapper">
+        <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+
+            <li class="active">
+                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Users</a>
+                   <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                    <li><a href="#">ADD USERS</a></li>
+                    <li><a href="#">BAN USERS</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Section</a>
+                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                    <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>ADD SECTION</a></li>
+                    <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>EDIT SECTION</a></li>
+						<li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>ENROLL STUDENT</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span> Courses</a>
+                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                    <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>ADD COURSE</a></li>
+                    <li><a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>EDIT COURSE</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</template>
+
+<template name="trial">
+	<div class="row" id="images">
+		<div class="col-sm-3">
+		  <label class="control-label">Select Image</label>
+          <input type="file" id="input-1" class="file">
+          <img id="image"> 
+		</div>
+	</div>
+    <form role="form" id="form">
+        <div class="row" id="information">
+            <div class="col-sm-7">
+                <label class="control-label">Name</label>
+                <input type="text" id="name" class="form-control"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                <label class="control-label">Profession</label>
+                <select id="profession" class="form-control">
+                    <option value="Instructor">Instructor</option>
+                    <option value="Student">Student</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                <label class="control-label">Department</label>
+                <input type="text" id="department" class="form-control"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                <label class="control-label">Gender: </label>
+                <label><input type="radio" name="gender" id="gender" value="Male" class="radion-inline"/>Male</label>
+                <label><input type="radio" name="gender" id="gender" value="Female"/>Female</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                <input type="submit" class="btn btn-primary"/>
+            </div>
+        </div>
+    </form>
+</template>
+
+<template name="ban">
+    <form role="form">
+        <div class="row" id="message">
+            <div class="col-sm-2">
+                <p>Mark user to ban</p>
+            </div>
+        </div>
+        <div class="row" id="banning">
+            <div class="col-sm-4">
+                 <div class="inner-addon left-addon">
+                     <input type="text" id="seach" class="form-control"/>
+                     <i class="glyphicon glyphicon-search"></i>
+                 </div>
+            </div>
+            <div class="col-sm-4">
+                 <select id="category" class="form-control">
+                    {{#each category}}
+                    <option>{{ select }}</option>
+                    {{/each}}
+                 </select> 
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-primary" text-align="center">Ban Selected</button>
+            </div>
+        </div>
+    </form>
+</template>
+
+<template name="addSection">
+    <div id="whole2">
+        <div class="row">
+            <div class="col-sm-2">
+                <label for="sectionName" class="control-label">Section Name</label>
+            </div>
+            <div class="col-sm-3"> 
+                <input type="text" class="form-control" id="sectionName"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <label class="control-label">Schedule</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6" id="check">
+                {{#each checkbox}}
+               <label class="checkbox-inline"> 
+                <input type="checkbox" value="{{ value }}"> {{ label }}
+                </label>
+                {{/each}}
+            </div>
+        </div>
+      
+        <div class="row">
+            <div class="col-sm-5" id="check2">
+                {{#each checkbox2}}
+                <label class="checkbox-inline"> 
+                <input type="checkbox" value="{{ value }}"> {{ label }}
+                </label>
+                {{/each}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <select class="form-control" id="to">
+                    {{ #each period }}
+                        <option>{{ time }}</option>
+                    {{ /each }}
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <h5> to </h5>
+            </div>
+            <div class="col-sm-2">
+                 <select class="form-control" id="from">
+                    {{ #each period }}
+                        <option>{{ time }}</option>
+                    {{ /each }}
+                </select>
+            </div>
+        </div>
+        <div id="lign">
+             <hr size="50" width="50%">
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <label class="control-label">Start Date</label>
+            </div>
+            <div class="col-sm-2">
+                 <select class="form-control" id="startDate">
+                    {{#each schedule}}
+                    <option>{{date}}</option>
+                    {{/each}}
+                 </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <label class="control-label">End Date</label>
+            </div>
+            <div class="col-sm-2">
+                 <select class="form-control" id="endDate">
+                    {{#each schedule}}
+                    <option>{{date}}</option>
+                    {{/each}}
+                 </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1">
+                <label class="control-label">Course:</label>
+            </div>
+            <div class="col-sm-2">
+                 <select class="form-control">
+                    {{#each school}}
+                    <option>{{course}}</option>
+                    {{/each}}
+                 </select>
+            </div>
+        </div>
+        <div class="row" id="next">
+            <div class="col-sm-4">
+                <button class="btn btn-primary">Next</button>
+            </div>
+        </div>
+    </div>  
+</template>
+
+<template name="assignInstructor">
+    <div id="whole">
+         <div class="row" id="search">
+            <div class="col-sm-4">
+                 <div class="inner-addon left-addon" id="some">
+                     <input type="text" id="seach" class="form-control"/>
+                     <i class="glyphicon glyphicon-search" id="somei"></i>
+                 </div>
+            </div>
+            <div class="col-sm-6" id="enrol">
+                <button class="btn btn-primary">Enroll Student</button>
+            </div>
+        </div>
+        <div class="row" id="btnni">
+            <div class="col-sm-6">
+                <button class="btn btn-primary" id="left">Add Section</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="addStudent">
+    <div id="whole1">
+         <div class="row" id="search">
+            <div class="col-sm-4">
+                 <div class="inner-addon left-addon" id="some">
+                     <input type="text" id="seach" class="form-control"/>
+                     <i class="glyphicon glyphicon-search" id="somei"></i>
+                 </div>
+            </div>
+             <div class="col-sm-6" id="enrol">
+                <button class="btn btn-primary">Add Section</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="enrollStudent">
+    <div class="whole1">
+        <div class="row" id="section2">
+            <div class="col-sm-1">
+                <label class="control-label">Section</label>
+            </div>
+            <div class="col-sm-2">
+                 <select class="form-control" id="endDate">
+                   <option>Name</option>
+                 </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6" id="section">
+                <hr id="esc">
+            </div>
+        </div>
+        <div class="row" id="search1">
+            <div class="col-sm-4">
+                 <div class="inner-addon left-addon" id="some2">
+                     <input type="text" id="seach" class="form-control"/>
+                     <i class="glyphicon glyphicon-search" id="somei"></i>
+                 </div>
+            </div>
+            <div class="col-sm-8" id="enrolSection">
+                <button class="btn btn-primary" >Enroll To Section</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="course">
+    <div class="whole">
+        <div class="row" id="side">
+            <div class="col-sm-2">
+                <label class="control-label">Course Number</label>
+            </div>
+            <div class="col-sm-5">
+                <input class="form-control" id="courseNumber" type="text"/>
+            </div>
+        </div>
+         <div class="row" id="side1">
+            <div class="col-sm-2">
+                <label class="control-label">Descriptive Title</label>
+            </div>
+            <div class="col-sm-5">
+                <input class="form-control" id="courseNumber" type="text"/>
+            </div>
+        </div>
+         <div class="row" id="side1">
+            <div class="col-sm-2">
+                <label class="control-label">Units</label>
+            </div>
+            <div class="col-sm-5">
+                <input class="form-control" id="courseNumber" type="text"/>
+            </div>
+        </div>
+         <div class="row" id="side1">
+            <div class="col-sm-2">
+                <label class="control-label">Sections</label>
+            </div>
+            <div class="col-sm-5">
+                <select class="form-control">
+                    {{#each variable}}
+                    <option value="{{section}}">{{ section }}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+         <div class="row" >
+            <div class="col-sm-8" id="button1">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="upload">
+    <h4 class="page-header">Upload a CSV</h4>
+
+    {{#unless uploading}}
+        <input type="file" name="uploadCSV">
+    {{else}}
+        <p><i class="fa fa-spin fa-refresh"></i>Uploading file...</p>
+    {{/unless}}
+</template>
